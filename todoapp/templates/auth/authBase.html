@@ -1,0 +1,35 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'macros.html' as macros %}
+
+{% block head %}
+    {{ super() }}
+
+    <!--
+        after this comment we add css of script files
+    -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css'  ) }}">
+
+    {% block extra_styles%}
+    {% endblock %}
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="flash-container">                
+        {{ macros.display_flash_alerts() }}
+    </div>
+
+
+    {% block content%}
+    {% endblock%}
+
+
+    {% block scripts %}
+        {{ super() }}
+    {% endblock %}
+
+    {% block extra_scripts%}
+    {% endblock %}
+
+{% endblock %}

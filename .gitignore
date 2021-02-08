@@ -1,0 +1,12 @@
+# If your application needs of some JavaScript library of framework
+node_modules
+
+# To avoid configuration files of some IDE
+.vscode
+.idea
+
+# Always ignore .env files
+.env
+
+# To avoid logs and txt files
+*.log

@@ -1,0 +1,1 @@
+cat installation_script.sql | sqlite3 todoapp.db

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+
+{%block content%}
+
+<div class="container">
+    <h3>V2 Vanilla JS</h3>
+
+  <!--
+        Macros to  diplay a modal based on Bootstrap
+        Parameters
+        ----------
+         title: 
+         message: 
+         component_id: 
+         btn_label:  'Close'
+         btn_id: ''
+         btn_class: 'info'  
+  -->
+  {{ macros.render_modal_alert( 'System Error', 'The todo could not be saved', 'todoModal', 'Close', '',  'info'  ) }}  
+  
+    <form method="POST" id="postForm" >
+
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control"  name="title" id="title" placeholder="Type your title">
+            <small></small>
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea  class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+            <small></small>
+        </div>    
+        <button type="button" id="postBtn"  class="btn btn-primary">Save TODO </button>
+    </form>
+    
+    <br>
+    
+</div>
+
+{%endblock%}
+
+
+{% block extra_scripts%}
+    <script  type="module" src="{{ url_for('static', filename='js/addTodo.js') }}"></script>
+{% endblock %}
+

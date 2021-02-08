@@ -1,0 +1,31 @@
+# To avoid configuration files of some IDE
+.vscode
+.idea
+
+
+# Ignore git related folder
+.git
+.gitignore
+
+# Always ignore .env files
+.env
+
+# To avoid logs and txt files
+*.log
+
+# Avoid documentation of the project
+DOCS
+*.md
+
+# Avoid sql scripts
+scripts
+
+# Avoid licence
+LICENSE
+
+# Remove pipfiles
+Pipfile
+Pipfile.lock
+
+# In this case, a CD/CI is not implemented, but if you require one you need to keep your tests
+tests

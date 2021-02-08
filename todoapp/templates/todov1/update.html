@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+<div class="container">
+    <form method="post">
+        <br>
+        <div class="custom-control custom-switch" >            
+            <input type="checkbox"  class="custom-control-input"
+                {% if todo.is_completed %} checked {% endif %}  
+                    name="isCompleted"   id="isCompleted" />
+            <label class="custom-control-label" for="isCompleted">Is completed?</label>
+        </div>
+
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" value="{{todo.title}}" name="title" id="title" placeholder="Type your title">
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea  class="form-control" name="description" id="description" cols="30" rows="10">{{todo.description}}</textarea>
+        </div>
+    
+        <div class="form-group" >
+            <label for="createdAt">Created</label>
+            <input type="datetime" class="form-control" value="{{ todo.created_at }}" name="createdAt" id="createdAt" readonly>
+        </div>
+        
+        <div class="form-group" >
+            <label for="updatedAt">Updated</label>
+            <input type="datetime" class="form-control" value="{{ todo.updated_at }}" name="updatedAt" id="updatedAt" readonly>
+        </div>
+    
+        <input type="submit" class="btn btn-primary"  value="Update Todo">
+    </form>
+    
+    <br>
+    
+    <form action="{{ url_for( delete_endpoint, id=todo.id ) }}" method="post">
+        <input  class="btn btn-danger"   type="submit" value="Delete" onclick="return confirm('Are you shure you want delete this todo?')" />
+    </form>   
+
+</div>
+
+{%endblock%}

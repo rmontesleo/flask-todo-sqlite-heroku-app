@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="jumbotron text-center">
+    <div class="container">
+      <h1>Welcome {{ user_name }}</h1>
+      <p class="lead text-muted">Version Two, using Vanilla JavaScript, ORM with MySQL </p>
+      <p>
+        <a href="{{ add_endpoint }}" class="btn btn-primary my-2">Add Todo</a>
+        <button id="switchBtn" class="btn btn-success my-2">Show Completed TODOS</button>
+      
+      </p>
+    </div>
+  </section>
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row" id="rowContainer" >            
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block extra_scripts%}
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/loadTodos.js') }}"></script>
+
+{% endblock %}

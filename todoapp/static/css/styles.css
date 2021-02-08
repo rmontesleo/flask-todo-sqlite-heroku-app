@@ -1,0 +1,37 @@
+:root {
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+}
+
+.flash-container {
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;    
+}
+
+
+.form-group small {
+    color: var(--error-color);
+    visibility: hidden;
+}
+
+.form-group.error small {
+    visibility: visible;
+}
+
+.form-group.success input {
+    border-color: var(--success-color);
+}
+  
+.form-group.error input {
+    border-color: var(--error-color);
+}
+
+
+.hidden-item {
+    visibility: hidden;
+}
+
+.show-item{
+    visibility: visible;
+}

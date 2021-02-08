@@ -1,0 +1,294 @@
+<!--
+    This macro get the flashes by category
+    - success: When an operation was executed successfully in application. Example, something with code 200 happend
+    - warning: To notify some warning. Example, like invalid credentials or empty fields
+    - error: When some error happened in application. Example, something with error code 500 happened
+
+    If some category get elements, invoke a generic macro (flash_alerts) to display them.
+-->
+{% macro display_flash_alerts() %}
+
+    {% with success_list = get_flashed_messages( with_categories=true , category_filter=['success'] ) %}        
+        {{ flash_alerts( success_list, 'success' ) }}
+    {% endwith %}
+
+    {% with warnings = get_flashed_messages( with_categories=true , category_filter=['warning'] ) %}        
+        {{ flash_alerts( warnings, 'warning' ) }}
+    {% endwith %}
+
+    {% with errors = get_flashed_messages( with_categories=true , category_filter=['error'] ) %}        
+        {{ flash_alerts( errors, 'danger' ) }}
+    {% endwith %}
+
+{% endmacro %}
+
+
+<!-- 
+    Macro used to display messages from some category.
+
+    Parameters
+    ----------
+    message_list : list of string
+    This is a list of one or more messages sent from backend
+
+    alert_class: str
+    This is the class to apply in bootstrap to display the flash message
+-->
+{% macro flash_alerts( message_list, alert_class ) %}
+    {% if message_list %}
+        {%  for category, message in message_list %}
+            <div class="alert alert-{{ alert_class }}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endmacro %}
+
+
+<!--
+    Macro to build the todo cards in the main page
+    The html structure was taken from Bootstrap samples
+
+    Parameters
+    ----------
+    todo_list: list of dictionaries
+    A list sent from backend with the todo items of some user.
+
+    update_endpoint: str
+    The value of the endpont to update the selected todo card. 
+    The value could be sent from backend or set directly in the html template.
+-->
+{% macro build_todo_cards( todo_list , update_endpoint ) %}
+
+    {% if todo_list %}
+        {% for todo in todo_list %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                        xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
+                        role="img" aria-label="Placeholder: Thumbnail">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#55595c" />
+                        <text x="50%" y="50%" fill="#eceeef" dy=".3em">{{ todo.title }}</text>
+                    </svg>    
+                    <div class="card-body">
+                        <p class="card-text">{{todo.description}}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                {% set todo_url =  url_for( update_endpoint, id=todo["id"] )  %}
+                                <button type="button" onclick=" location.href='{{ todo_url }}' " class="btn btn-sm btn-outline-secondary">Edit</button>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        {% endfor %}
+    {% else %}
+        <p> Try again please </p>    
+    {% endif %}
+
+{% endmacro %}
+
+
+<!--
+     This macro display/render a modal alert base on Bootstrap to notify
+
+     Parameters
+     ----------
+     title: str
+
+     message: str
+
+     componente_id: str
+
+     btn_label: str
+
+     btn_id: str
+
+     btn_class: str
+
+-->
+{% macro render_modal_alert( title, message, component_id, btn_label, btn_id, btn_class ) %}
+
+    <div class="modal fade" id="{{ component_id }}" tabindex="-1" role="dialog" aria-labelledby="{{ component_id }}Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="{{ component_id }}Label">{{ title }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">{{ message }}</div>
+                <div class="modal-footer">
+                    <button type="button" id="{{ btn_id }}"  class="btn btn-{{ btn_class }}" data-dismiss="modal">{{ btn_label }}</button>          
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+<!--
+    This macro displyar/render a modal confirm based on Bootstrap
+    
+    Parameters
+    ----------
+    title: str
+
+    message: str
+
+    component_id:str
+
+    cancel_btn_label: str
+
+    cancel_btn_id: str
+
+    cancel_btn_class: str
+
+    ok_btn_label: str
+
+    ok_btn_id: str
+
+    ok_btn_class: str
+
+-->
+{% macro render_modal_confirm( title, message, component_id, 
+        cancel_btn_label, cancel_btn_id, cancel_btn_class,
+        ok_btn_label, ok_btn_id, ok_btn_class  ) %}
+
+    <div class="modal fade" id="{{ component_id }}" tabindex="-1" role="dialog" aria-labelledby="{{ component_id }}Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="{{ component_id }}Label">{{ title }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">{{ message }}</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-{{cancel_btn_class}}" id="{{cancel_btn_id}}"  data-dismiss="modal">{{cancel_btn_label}}</button>
+                    <button type="button" class="btn btn-{{ok_btn_class}}" id="{{ ok_btn_id }}"  >{{ ok_btn_label }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+
+<!--
+     This macro render a modal window to create a todo
+
+     Parameters
+     -------------   
+     component_id:
+     title_id:
+     description_id:
+     close_btn_id:
+     save_btn_id:
+-->
+{% macro create_todo_modal( component_id, title_id, description_id, close_btn_id, save_btn_id  ) %}
+    <div class="modal fade" id="{{component_id}}" tabindex="-1" role="dialog" aria-labelledby="{{component_id}}Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="{{component_id}}Label">Add New Todo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="{{title_id}}" class="col-form-label">Title:</label>
+                            <input type="text" class="form-control" id="{{title_id}}">
+                            <small></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="{{description_id}}" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="{{description_id}}"></textarea>
+                            <small></small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="{{close_btn_id}}" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="{{save_btn_id}}"  class="btn btn-primary">Save Todo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+
+<!--
+        Macro to render a window to update certain todo
+
+        component_id, 
+        is_compled_id, 
+        title_id, 
+        description_id, 
+        createdat_id, 
+        updatedat_id, 
+        todo_id,
+        close_btn_id, 
+        save_btn_id
+        
+-->
+{% macro update_todo_modal( component_id, 
+        is_compled_id, title_id, description_id, 
+        createdat_id, updatedat_id, todo_id,
+        close_btn_id, save_btn_id  ) %}
+    <div class="modal fade" id="{{component_id}}" tabindex="-1" role="dialog" aria-labelledby="{{component_id}}Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="{{component_id}}Label">Add New Todo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <br>
+
+                        <div class="custom-control custom-switch" >            
+                            <input type="checkbox"  class="custom-control-input"                
+                                name="{{is_compled_id}}" id="{{is_compled_id}}" />
+                            <label class="custom-control-label"  for="{{is_compled_id}}">Is completed? </label>            
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{title_id}}" class="col-form-label">Title</label>
+                            <input type="text" class="form-control" id="{{title_id}}">
+                            <small></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="{{description_id}}" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="{{description_id}}"></textarea>
+                            <small></small>
+                        </div>
+                        <div class="form-group" >
+                            <label for="{{createdat_id}}">Created</label>
+                            <input type="datetime" class="form-control" name="{{createdat_id}}" id="{{createdat_id}}" readonly>
+                        </div>
+                        
+                        <div class="form-group" >
+                            <label for="{{updatedat_id}}">Updated</label>
+                            <input type="datetime" class="form-control" name="{{updatedat_id}}" id="{{updatedat_id}}" readonly>
+                        </div>
+                        <div class="form-group" >
+                            <label for="{{todo_id}}">Updated</label>
+                            <input  type="hidden"
+                                    class="form-control"
+                                    name="{{todo_id}}"
+                                    id="{{todo_id}}" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="{{close_btn_id}}" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="{{save_btn_id}}"  class="btn btn-primary">Update Todo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}

@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% import  'macros.html' as macros %}
+
+{%block content%}
+
+
+<!--
+        Macros to  diplay a modal based on Bootstrap
+        Parameters
+        ----------
+         title: 
+         message: 
+         component_id: 
+         btn_label:  'Close'
+         btn_id: ''
+         btn_class: 'info'  
+  -->
+
+{{ macros.render_modal_alert( 'System Error', 'The todo could not be loaded',  'loadAlert',  'Close',  'loadCloseBtn',   'info'  ) }}  
+
+
+<!--
+        Macros to  diplay a modal based on Bootstrap
+        Parameters
+        ----------
+         title: 
+         message: 
+         component_id: 
+         btn_label:  'Close'
+         btn_id: ''
+         btn_class: 'info'  
+  -->
+{{ macros.render_modal_alert( 'System Error', 'The todo could not be updated', 'updateAlert', 'Close', 'updateCloseBtn', 'info'  ) }}  
+
+
+<!--
+        Macros to  diplay a modal based on Bootstrap
+        Parameters
+        ----------
+         title: 
+         message: 
+         component_id: 
+         btn_label:  'Close'
+         btn_id: ''
+         btn_class: 'info'  
+  -->
+{{ macros.render_modal_alert( 'System Error', 'The todo could not be deleted', 'deleteAlert', 'Close', 'deleteCloseBtn', 'info'  ) }}  
+
+
+<!--
+        Macros to display a modal confirm based on Bootstrap
+        Parameters
+        ----------
+        title: str
+        message: 
+        componente_id: 
+        btn_label: 
+        btn_id: 
+        btn_class:
+-->
+{{
+    macros.render_modal_confirm( 'Confirm to Delete', 'Are you sure to delete this item?' , 'deleteConfirm', 
+        'Cancel', 'deleteCancelBtn', 'secondary',
+        'Delete', 'deleteOkBtn', 'danger'  )
+}}
+
+
+<div class="container">
+    <h3>V2 Vanilla JS</h3>
+
+    <form>
+        <br>
+
+        <div class="custom-control custom-switch" >            
+            <input type="checkbox"  class="custom-control-input"                
+                    name="isCompleted" id="isCompleted" />
+            <label class="custom-control-label"  for="isCompleted">Is completed? </label>            
+        </div>
+
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" name="title" id="title" placeholder="Type your title">
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea  class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+        </div>
+    
+        <div class="form-group" >
+            <label for="createdAt">Created</label>
+            <input type="datetime" class="form-control" name="createdAt" id="createdAt" readonly>
+        </div>
+        
+        <div class="form-group" >
+            <label for="updatedAt">Updated</label>
+            <input type="datetime" class="form-control" name="updatedAt" id="updatedAt" readonly>
+        </div>
+
+        <input type="hidden" id="todoIdHidden" value="{{ todo_id }}" />
+    
+        <button type="button"  id="putBtn" class="btn btn-primary">Update Todo</button>
+    </form>    
+    <br>
+    
+    <form>
+        <button class="btn btn-danger" id="deleteBtn" type="button">Delete</button>
+    </form>    
+
+    
+</div>
+
+{%endblock%}
+
+{% block extra_scripts%}
+    
+    {% set js_resource = url_for('static', filename='js/updateTodo.js') %}
+
+    <script type="module" src="{{ js_resource }}"></script>
+
+    <script type="module" >
+        import {loadTodo} from '{{ js_resource }}';        
+        loadTodo( '{{ todo_id }}');
+    </script>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+
+{% block content %}
+
+<section class="jumbotron text-center">
+    <div class="container">
+      <h1>Welcome {{ user_name }}</h1>
+      <p class="lead text-muted">
+        Basic todo application using Python3, Flask, Jinja Templates, CSS and SQLite3.         
+        A basic CRUD is the main functionallity of the application.
+      </p>
+      <p>
+        <a href="{{  add_endpoint  }}" class="btn btn-primary my-2">Add Todo</a>   
+      </p>
+    </div>
+  </section>
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+
+            <!--
+                 Macro to build the todo cards in the main page
+    
+                Parameters
+                ----------
+                todo_list: list of dictionaries of type user
+                update_endpoint: The value of the base url to update the todo.     
+            -->
+            {{ macros.build_todo_cards( todo_list, update_endpoint ) }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

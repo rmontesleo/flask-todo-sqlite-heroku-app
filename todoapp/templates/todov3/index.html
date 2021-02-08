@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% import  'macros.html' as macros %}
+
+{% block content %}
+
+  {{
+      macros.update_todo_modal( 'updateTodoWindowModal', 
+        'updateTodoisCompleted', 'updateTodoTitle', 'updateTodoDescription', 
+        'updateTodoCreatedAt', 'updateTodoUpdatedAt', 'updateTodoTodoId',
+        'closeUpdateTodoWindowModalBtn', 
+        'updateUpdateTodoWindowModalBtn' )
+  }}
+
+  {{ 
+      macros.create_todo_modal( 'addTodoWindowModal', 
+        'addTodoTitle', 'addTodoDescription', 
+        'closeAddTodoWindowModalBtn', 
+        'saveAddTodoWindowModalBtn'  ) 
+  }}
+
+  {{
+      macros.render_modal_confirm( 'Confirm to Delete', 'Are you sure to delete this item?' , 'deleteConfirm', 
+        'Cancel', 'deleteCancelBtn', 'secondary',
+        'Delete', 'deleteOkBtn', 'danger'  )
+  }}
+
+  <!--
+    render_modal_alert( title, message, component_id, btn_label, btn_id, btn_class ) 
+  -->
+  {{ 
+    macros.render_modal_alert( 'System Error', 'The todo list could not be loaded', 
+    'loadAlert', 'Close', 'loadCloseBtn',  'info'  ) 
+  }}
+
+  {{ 
+      macros.render_modal_alert( 'System Error', 'The todo could not be saved', 
+      'saveAlert', 'Close', 'saveCloseBtn',  'info'  ) 
+  }}  
+
+  {{ 
+      macros.render_modal_alert( 'System Error', 'The todo could not be loaded', 
+        'getAlert', 'Close', 'getCloseBtn', 'info' )
+  }}
+
+  {{ 
+      macros.render_modal_alert( 'System Error', 'The todo could not be deleted', 
+        'deleteAlert', 'Close', 'deleteCloseBtn', 'info' )
+  }}
+
+  {{ 
+      macros.render_modal_alert( 'System Error', 'The todo could not be updated', 
+        'updateAlert', 'Close', 'updateCloseBtn', 'info' )
+  }}
+
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1>Welcome {{ user_name | capitalize  }}</h1>
+      <p class="lead text-muted">Version 3, Appligin MySQL Store Procedure and more JS Vanilla</p>
+      <p>
+        <button type="button" id="addTodoBtn"  class="btn btn-primary my-2">Add Todo</button>        
+        <button type="button" id="switchBtn" class="btn btn-success my-2">Show Completed TODOS</button>      
+      </p>
+    </div>
+  </section>
+
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row" id="rowContainer" >            
+        </div>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+{% block extra_scripts%}
+
+    <script type="module" src="{{ url_for('static', filename='js/postTodo.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/getTodos.js') }}"></script>
+
+{% endblock %}
