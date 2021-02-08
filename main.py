@@ -11,6 +11,7 @@ app = create_app()
 
 home_prefix = 'todov1'
 
+
 @app.route('/')
 def go_home():
     """ When root path is requested, 

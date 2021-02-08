@@ -20,4 +20,40 @@ web: gunicorn app:main
 pipenv run pip freeze > requirements.txt
 ```
 
-## setup or verify your git environment
+## setup or verify your git environment 
+
+```
+git init
+git add .
+git commit -m "Initial commit"
+```
+
+## Create a .slugignore, and add the files you want to ignore in the deployment
+```
+touch .slugignore
+```
+
+## login with heroku, a web browser will be open
+```
+heroku login
+```
+
+## Create an app with the heroku cli, and see the link to open the application dashboard
+```
+heroku create
+```
+
+## You can rename your app
+```
+heroku rename <new_amazing_name>
+heroku rename flask-todo-sqlite-heroku-app
+```
+## Deploy the app to heroku, 
+```
+git push heroku master
+```
+
+
+
+
+
