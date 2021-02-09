@@ -1,5 +1,6 @@
 # Project structure
 
+```
 .
 ├── app.py
 ├── DOCS
@@ -70,6 +71,4 @@
 │   └── todov3_bp.py
 ├── todoapp.db
 └── todo_errors.log
-
-
-14 directories, 55 files
+```

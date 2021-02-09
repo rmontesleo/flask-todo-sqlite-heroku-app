@@ -13,8 +13,15 @@ This process apply when you are creating the database or when you are installed
 
 ## The model of the database is the following.
 
+<br/>
+<br/>
 
 
+<img src="images/DataBase_Diagram.JPG"
+     alt="Login Page"/>
+
+
+<br/><br/>
 
 ## The DAO pattern
 
@@ -25,8 +32,9 @@ This process apply when you are creating the database or when you are installed
 
 The following diagram show the inheritance relation between classes.
 
+<br/>
+<br/>
 
 
 <img src="images/TODO_DAO_Diagram_class.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page"/>

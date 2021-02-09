@@ -45,8 +45,7 @@ You must see in console something like that
 ## Go to main page and set your credentials
 
 <img src="images/Login.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" with="100px" />
 
 
 
@@ -56,40 +55,34 @@ If you sent nothing, you will be warn of empty fields
 
 
 <img src="images/Login_error.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 If your credential are invalid, you will be warn to correct them.
 <img src="images/Login_invalid.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 If you are not register use the link sigup
 <img src="images/Signup.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page"/>
 
 
 You only need a user(not taken) and password .
 If you use a taken username you will be warn.
 
 <img src="images/Signup_invalid.JPG"
-     alt="Signup invalid"
-     style="float: left; margin-right: 10px;" />
+     alt="Signup invalid"/>
 
 If signup was successfull you will be redirected to login page to use your credential.
 
 <img src="images/Login.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page"/>
 
 
 After successfull login you will be redirected to you home page
 <img src="images/MainPage.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 
@@ -104,8 +97,7 @@ When you arrive in the home page, version 1 is by default. You can use version 1
 For version 2 and 3 use the menu, and choose one version.
 
 <img src="images/Menu.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 ---
@@ -116,22 +108,19 @@ For version 2 and 3 use the menu, and choose one version.
 Clik on Add Todo button to go to save page
 
 <img src="images/Save.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 To add a new todo tipe title and description, both are required. If some field is missing, you will be warn.
 
 <img src="images/Save_error.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 When the todo is successfully save, you will be redirected to main page and a flash will be sent.
 
 <img src="images/Save_success.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 To edit  some todo, click on the Edit Button of the specific Todo. You will be redirected to update page.
@@ -139,44 +128,38 @@ To edit  some todo, click on the Edit Button of the specific Todo. You will be r
 In this page, you can chagtne title, description or change the status of the todo. Title and description are required.
 
 <img src="images/Update.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 When you update the Todo, you will be redirected to home page and notified with a flash
 
 <img src="images/Update_success.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 To delete some todo, click in the edit button  and you will be redirected to edit page. An clic the delete button. A confirm window will be sent, To continue with operation or cancel it.
 
 <img src="images/delete_todo.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 If you delete the todo you will be redirected to main page and a flash notify you about the action.
 
 <img src="images/delete_success.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 ## Version 2
 Version 2 it similar in many actions. But you have and additional button to show completed or pending todos. By default pending todos are shown and the button in color Green to change to completed todos. 
 
 <img src="images/V2_todo.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 If you clien on green button (Show completed todos), the application show your completed todos and the color of the button change to yellow. When you click it, your completed todos will be listed.
 
 
 <img src="images/V2_completed.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 ## Version 3
@@ -185,39 +168,33 @@ Version 3 you can add the actions in the same page, and differents windows appea
 The home page in version 3, is very similar to previous one.
 
 <img src="images/V3_todo.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" with="100px" />
 
 
 To add a new todo click on Add todo and a windows will apperar. 
 
 <img src="images/V3_save.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 All fields are required. If someone is missing , the app notify you.
 
 <img src="images/V3_save_error.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page"   />
 
 When you add a todo you will see the new todo in pending todos.
 
 <img src="images/V3_save_success.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 To update todo (title, description, status) cliek on edit button and a new windows appear.
 
 <img src="images/V3_update.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 To delete some todo, click directly in Delete button. A confirm windows appear to confirm or cancel operation.
 
 <img src="images/V3_delete.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />

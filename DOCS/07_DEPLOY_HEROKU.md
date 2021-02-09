@@ -55,21 +55,18 @@ heroku rename flask-todo-sqlite-heroku-app
 Go to Heroku panel  and select you application
 
 <img src="images/Heroku_dashboard.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page"/>
 
 
 Go to configuration, and revela config vars
 
 <img src="images/Heroku_envvars.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page"/>
 
 And set the values you required.
 
 <img src="images/Heroku_setvars.JPG"
-     alt="Login Page"
-     style="float: left; margin-right: 10px;" />
+     alt="Login Page" />
 
 
 
