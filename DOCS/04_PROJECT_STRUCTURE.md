@@ -1,30 +1,22 @@
-
-# Project Structure
-
-
-### Note: Maybe the preview is not the best option, see in the raw text
-
+# Project structure
 
 .
-├── development
-│   ├── build_env
-│   └── dev_env
-├── Dockerfile
+├── app.py
 ├── DOCS
 │   ├── 00_REQUIREMENTS.md
-│   ├── 01_INSTALL_PROJECT.md
-│   ├── 02_INSTALL_DB.md
-│   ├── 03_RUN_PROJECT.md
-│   ├── 04_BUILD_CONTAINER.md
-│   ├── 05_DEPLOY_IBM.md
-│   ├── 06_PROJECT_STRUCTURE.md
-│   └── 07_REFERENCES.md
-├── installation_script.sql
+│   ├── 01_CREATE_PROJECT.md
+│   ├── 02_INSTALL_PROJECT_FROM_GITHUB.md
+│   ├── 03_INSTALL_DB.md
+│   ├── 04_PROJECT_STRUCTURE.md
+│   ├── 05_RUN_PROJECT.md
+│   ├── 06_REFERENCES.md
+│   └── 07_DEPLOY_HEROKU.md
 ├── LICENSE
-├── main.py
 ├── Pipfile
 ├── Pipfile.lock
-├── REAME.md
+├── Procfile
+├── README.md
+├── requirements.txt
 ├── scripts
 │   ├── ddl_scripts.sql
 │   └── query_scripts.sql
@@ -43,8 +35,15 @@
 │   │   └── validators.py
 │   ├── __init__.py
 │   ├── static
-│   │   └── css
-│   │       └── styles.css
+│   │   ├── css
+│   │   │   └── styles.css
+│   │   └── js
+│   │       ├── addTodo.js
+│   │       ├── getTodos.js
+│   │       ├── loadTodos.js
+│   │       ├── postTodo.js
+│   │       ├── updateTodo.js
+│   │       └── validations.js
 │   ├── templates
 │   │   ├── 404.html
 │   │   ├── 405.html
@@ -56,13 +55,21 @@
 │   │   ├── base.html
 │   │   ├── header.html
 │   │   ├── macros.html
-│   │   └── todov1
-│   │       ├── create.html
-│   │       ├── index.html
-│   │       └── update.html
-│   └── todov1_bp.py
+│   │   ├── todov1
+│   │   │   ├── create.html
+│   │   │   ├── index.html
+│   │   │   └── update.html
+│   │   ├── todov2
+│   │   │   ├── create.html
+│   │   │   ├── index.html
+│   │   │   └── update.html
+│   │   └── todov3
+│   │       └── index.html
+│   ├── todov1_bp.py
+│   ├── todov2_bp.py
+│   └── todov3_bp.py
 ├── todoapp.db
 └── todo_errors.log
 
 
-12 directories, 45 files
+14 directories, 55 files

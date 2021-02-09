@@ -14,6 +14,7 @@
 - Python Dotenv
 - werkzeug
 - Blinker
+- gunicorn
 
 ## Database
 - SQLite 3
@@ -21,12 +22,7 @@
 ## IDE or Text editor
 - VSCode
 
-## For containers
-- Docker
 
-
-## For deploy on IBM Cloud
-- An account on IBM Cloud
-- A Kuberntes Cluster
-- The ibm cloud client
-- A registry to install your docker image.
+## For deploy on Heroku
+- An account on Heroku 
+- The Heroku CLI install in your system

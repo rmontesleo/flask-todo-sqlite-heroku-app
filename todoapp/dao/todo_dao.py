@@ -81,6 +81,27 @@ class TodoDAO(RdbmsDAO):
         
 
     def select_todos_by_status( self, user_id, is_completed= 0 ):
+        """ This method get all the records of the todo table by some user and some status, 1 for completed and
+            0 for not compleated. 
+
+            Parameters
+            ----------
+            user_id: int
+            The value of user id to search in the database to fetch the requierd records.
+
+            is_completed: int
+            The status of the todo, 1 for completed and 0 for not completed. By the fault the value is 0.
+
+
+
+            Returns
+            -------
+            todo_list: list of dict
+            The method returns a list of dictionary with the values of the records of the todo table, 
+            filtered by user id and status.
+            Otherwise returns an empty list
+        """
+
         sql = """
             SELECT  
             t.id as id,             
