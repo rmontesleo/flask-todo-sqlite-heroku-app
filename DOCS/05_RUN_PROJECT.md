@@ -39,8 +39,20 @@ You must see in console something like that
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 191-006-456
-
 ```
+
+## Basic Operations
+
+This application load, create, modify or delete the todos of some user. The user must be loggin in the application.  If the user does not exist, it can be sigup.
+
+This is the basic diagram
+
+<img src="images/SequenceDiagram.JPG"
+     alt="Login Page" with="100px" />
+
+
+
+
 
 ## Go to main page and set your credentials
 
@@ -102,7 +114,7 @@ For version 2 and 3 use the menu, and choose one version.
 
 ---
 
-## Verion 1. Save, Update and Delete Todo
+## Version 1. Save, Update and Delete Todo
 
 
 Clik on Add Todo button to go to save page

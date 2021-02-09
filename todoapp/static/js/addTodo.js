@@ -1,6 +1,10 @@
 import { isValidBasicTodoForm  } from './validations.js';
 
 /**
+ * This function POST a todo and if is successfull, redirects to home in the version 2.
+ *  Structure of todo 
+ *  title: string
+ *  description: string
  * 
  * @param {*} todo 
  */

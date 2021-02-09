@@ -10,7 +10,7 @@ pipenv install gunicorn
 touch Procfile
 ```
 
-## Edit Procfile to indicate the type of application and what file is the app, in this case is main
+## Edit Procfile to indicate the type of application and what file is the app, in this case is the file app.py
 ```
 web: gunicorn app:app
 ```

@@ -1,5 +1,9 @@
 import { isValidBasicTodoForm  } from './validations.js';
 
+/**
+ * 
+ * @param {*} todo 
+ */
 function setTodoValues( todo ){
     const{  title, description, 
             created_at, updated_at, is_completed   } = todo;
@@ -11,6 +15,10 @@ function setTodoValues( todo ){
     document.getElementById('updatedAt').value = updated_at;
 }
 
+/**
+ * 
+ * @param {*} todoId 
+ */
 export async function loadTodo( todoId ){    
     try {
         const url = `/todov2/load_by_id/${todoId}`;
@@ -28,7 +36,10 @@ export async function loadTodo( todoId ){
     }
 }
 
-
+/**
+ * 
+ * @param {*} todoId 
+ */
 async function deleteTodo( todoId ){
     try {
         const url = `/todov2/delete/${todoId}`;

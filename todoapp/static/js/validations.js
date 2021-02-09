@@ -1,5 +1,6 @@
 /**
- * 
+ * Validate some field is not null, undefined or empty string
+ * Returns true if accomplish all conditions, otherwise return false.
  * @param {*} fieldValue 
  */
 export function isNotEmpty( fieldValue ){
@@ -13,9 +14,9 @@ export function isNotEmpty( fieldValue ){
 }
 
 /**
- * 
- * @param {*} fieldValue 
- * @param {*} max 
+ * This function validate the max length of some value.
+ * @param {*} fieldValue  : The value to evaluate (String)
+ * @param {*} max : The max length to evaluate ( Integer)
  */
 export function isValidMaxLength( fieldValue, max ){
     let isValid = false;

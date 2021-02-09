@@ -1,3 +1,8 @@
+
+/**
+ * 
+ * @param {*} todo 
+ */
 function setTodoValues( todo ){
     const{  title, description, 
             created_at, updated_at, is_completed, id  } = todo;

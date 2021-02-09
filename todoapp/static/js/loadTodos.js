@@ -1,4 +1,11 @@
-
+/**
+ * This function build the HTML required to show a todo Card
+ * Return a String with the html card to display. * 
+ * @param {*} param0: A todo object. This object is deconstructed 
+ *      id: integer
+ *      title: string
+ *      description: string
+ */
 function buildCard( { id, title, description} = {} ){
     
     const todo_url = `/todov2/update/${id}`;
@@ -27,6 +34,12 @@ function buildCard( { id, title, description} = {} ){
     
 }
 
+/**
+ * This function received an array of todos, each todo is map to an HTML card structure.
+ * Then the array of stings ins join an injected in the div container.
+ * @param {*} todoArray 
+ * todoArray: array of todos
+ */
 function buildRowCards( todoArray ){
     const todoMap = todoArray.map( todo =>{
         return buildCard( todo );
@@ -36,6 +49,12 @@ function buildRowCards( todoArray ){
 }
 
 
+/**
+ * This function load the user's todo by status
+ * true by completd
+ * false by pending.
+ * @param {*} todoStatus 
+ */
 async function loadTodos( todoStatus=false ) {    
     try {
         url = `/todov2/load?is_completed=${todoStatus}`;
@@ -51,8 +70,13 @@ async function loadTodos( todoStatus=false ) {
 }
 
 
+// Get swith button in the DOM
 const switchBtn = document.getElementById('switchBtn');
 
+
+/**
+ * Set the onclick event to switchBtn to load completed or pending todos
+ */
 switchBtn.addEventListener('click', function( event ){
     const initialClass = 'btn btn-success my-2';
     const switchClass  = 'btn btn-warning my-2';
@@ -70,4 +94,7 @@ switchBtn.addEventListener('click', function( event ){
 });
 
 
+/**
+ * By initial load, fetch all pending Todos
+ */
 loadTodos( false );
