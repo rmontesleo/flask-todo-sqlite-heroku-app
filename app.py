@@ -1,6 +1,6 @@
 """ 
-    This main file is executed by flask to run the application.
-    Create an instance of the applictaion, and then define the 
+    This app file is executed by flask to run the application.
+    Create an instance of the applictaion, and then define a 
     route method for the root page.
 """
 
@@ -10,7 +10,6 @@ from todoapp import create_app
 app = create_app()
 
 home_prefix = 'todov1'
-
 
 @app.route('/')
 def go_home():

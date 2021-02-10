@@ -52,7 +52,7 @@ Thank you for your attention.
 - **.gitignore**: The file with the list of folders and files to be ignore by git when versioning the project.
 - **.slugignore**: The file with the list of folders and files to be ignore for deployment on Heroku.
 - **LICENSE**: The MIT licence of the project.
-- **app**: The python file that uses flask to run the application. This file is required by gunicorn to start the application on Heroku.
+- **app**: The python file that uses flask to run the application. This file and the name app.py  are required by gunicorn to start the application on Heroku.
 - **Pipfile**: The file used by pipenv to define the main dependencies.
 - **Pipfile.lock**: The file with all the required dependencies. This file is used to install depenencies in the project and in the container.
 - **Procfile**: This file is used to deploy on Heroku and run the application.

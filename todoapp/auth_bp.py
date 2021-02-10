@@ -1,3 +1,7 @@
+""" This python file defines the logic for login, logout, signup and the decorators to evaluate 
+    if some request is authenticated.
+"""
+
 import functools
 
 from flask import (
