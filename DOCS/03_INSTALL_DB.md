@@ -36,5 +36,5 @@ The following diagram show the inheritance relation between classes.
 <br/>
 
 
-<img src="images/TODO_DAO_Diagram_class.JPG"
-     alt="Login Page"/>
+<img src="images/TODO_DAO_Diagram_class.jpg"
+     alt="DAO Diagram class"/>
