@@ -10,3 +10,7 @@ node_modules
 
 # To avoid logs and txt files
 *.log
+
+
+# Avoid sqlite database
+*.db

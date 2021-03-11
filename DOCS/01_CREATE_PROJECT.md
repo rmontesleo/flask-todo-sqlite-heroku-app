@@ -22,7 +22,7 @@ touch .env
 The content, contain the following variables.
 
 ```
-FLASK_APP=main.py
+FLASK_APP=app.py
 
 # For development the value is 1, for deployment on Heroku the value is 0
 FLASK_DEBUG=1
