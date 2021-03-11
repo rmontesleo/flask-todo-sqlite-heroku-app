@@ -20,6 +20,7 @@
 
   <main role="main">
 
+    <!-- Block to add the main content of the child template -->
     <div class="flash-container">                
       {{ macros.display_flash_alerts() }}
     </div>
@@ -39,10 +40,12 @@
         </div>
       </footer>
 
+    <!-- Block to display the script of Bootstrap  -->  
     {% block scripts %}
         {{ super() }}
     {% endblock %}
 
+    <!-- Block to append js files if they are required -->
     {% block extra_scripts%}
     {% endblock %}
 

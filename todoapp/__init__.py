@@ -9,8 +9,10 @@
     5) Initialize the database layer executing the function init_dao_app
     6) Subscribe the blueprint for authentication
     7) Subscribe the blueprint for the todo app for version 1.
-    8) Define a command to execute unit tests.
-    9) Finally returns the application that be executed by the file app.py
+    8) Subscribe the blueprint for the todo app for version 2.
+    9) Subscribe the blueprint for the todo app for version 3.
+    10) Define a command to execute unit tests.
+    11) Finally returns the application that be executed by the file app.py
 """
 
 import os
