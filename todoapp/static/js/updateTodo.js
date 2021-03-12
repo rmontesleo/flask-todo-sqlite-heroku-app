@@ -31,7 +31,7 @@ export async function loadTodo( todoId ){
         const todo = await response.json();
         setTodoValues(todo);        
     } catch ( error ) {
-        console.error( error )
+        //console.error( error )
         $('#loadAlert').modal('show');        
     }
 }
@@ -76,7 +76,7 @@ async function putTodo( todoId, todo ){
         const status = await response.status;
         const data = await response.json();    
 
-        console.log(`data is ${data} and status is ${status}` );
+        //console.log(`data is ${data} and status is ${status}` );
         location.href = '/todov2';
     } catch ( error ) {
         $('#updateAlert').modal('show');        

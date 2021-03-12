@@ -116,11 +116,11 @@ async function loadTodos( todoStatus=0 ) {
         const response = await fetch( url );
         const data =  await response.json();
         
-        console.table(data);
+        //console.table(data);
 
         buildRowCards( data );
     } catch (error) {
-        console.error(`error was ${error}`)
+        //console.error(`error was ${error}`)
         $('#loadAlert').modal('show');
     }
 }

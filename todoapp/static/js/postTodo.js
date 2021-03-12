@@ -24,9 +24,9 @@ async function postTodo( todo ){
         
     } catch ( error ) {
         $('#addTodoWindowModal').modal('hide');
-        console.error( error );
+        //console.error( error );
         $('#saveAlert').modal('show')
-        console.log('bye bye')
+        //console.log('bye bye')
     }
 }
 

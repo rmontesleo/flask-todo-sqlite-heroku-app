@@ -20,10 +20,10 @@ async function postTodo( todo ){
         const status = await response.status;
         const data = await response.json();    
 
-        console.log(`data is ${data} and status is ${status} `);
+        //console.log(`data is ${data} and status is ${status} `);
         location.href = '/todov2';
     } catch ( error ) {
-        console.error( error );
+        //console.error( error );
         $('#todoModal').modal('show')        
     }    
 

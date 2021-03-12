@@ -73,7 +73,7 @@ And set the values you required.
 
 ## Deploy the app to heroku, 
 ```
-git push heroku master
+git push heroku main
 ```
 
 The display messages will be something like that

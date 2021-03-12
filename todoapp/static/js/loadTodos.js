@@ -61,7 +61,7 @@ async function loadTodos( todoStatus=false ) {
         const response = await fetch( url );
         const data =  await response.json();
         
-        console.table(data);
+        //console.table(data);
 
         buildRowCards( data );
     } catch (error) {
