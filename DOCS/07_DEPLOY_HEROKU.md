@@ -156,5 +156,5 @@ remote: Verifying deploy... done.
 
 ## get info of you application with
 ```
-heroku app:info
+heroku apps:info
 ```
